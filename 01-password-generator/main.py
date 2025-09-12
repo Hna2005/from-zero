@@ -27,13 +27,3 @@ class RandomPassword(PasswordGenerator):
 
     def generate(self):
         return ''.join(secrets.choice(self.characters) for _ in range(self.length))
-    
-# ساختن آبجکت از کلاس‌ها
-pin = PinPassword(length=6)               # پسورد فقط عددی، ۶ رقمی
-rand1 = RandomPassword(length=12)         # پسورد شامل حروف+اعداد+سیمبل
-rand2 = RandomPassword(length=10, numbers=False, symbols=False)  # فقط حروف
-
-# تست خروجی‌ها
-print("PIN Password:", pin.generate())
-print("Random Password (default):", rand1.generate())
-print("Random Password (letters only):", rand2.generate())
