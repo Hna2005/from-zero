@@ -21,3 +21,4 @@ print("PIN:", pin.generate())
 
 rand = RandomPassword(length=12, numbers=True, symbols=True)
 print("Random password:", rand.generate())
+```
