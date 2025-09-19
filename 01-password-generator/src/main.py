@@ -44,7 +44,7 @@ def main():
         )
     elif args.mode == "memorable":
         generator = MemorablePassword(
-            length=args.words,
+            word_count=args.words,
             separator=args.separator,
             capitalization=not args.no_capitalize
         )
