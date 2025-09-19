@@ -1,11 +1,14 @@
-# Password Generator
-This project is a starting point to improve my Python skills. It can generate stronger passwords with different options.
-Inspired by a sample project on GitHub. It generates secure passwords in three different styles:  
-
+# 01-password-generator
+A Python CLI tool to generate secure passwords in three styles:
 1. **PIN** → numeric only (like a bank PIN)  
 2. **Random** → mix of letters, numbers, and symbols  
-3. **Memorable** → word-based passwords that are easier to remember  
+3. **Memorable** → word-based passwords that are easier to remember 
+Built with object-oriented programming to practice class design in Python
+Inspired by a sample project on GitHub. 
 
+## Requirements
+Python 3.9+
+Dependencies listed in `requirements.txt`
 
 ## Installation
 Clone the repository:
@@ -17,7 +20,7 @@ Install the dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-## How to use
+## Usage
 Go inside the `src/` folder and run the main script.
 
 ### 1. Generate a PIN
@@ -43,6 +46,15 @@ python main.py random --length 12 --no-symbols
 python main.py memorable --words 4 --separator "-" --no-capitalize
 ```
 Example output: `river-dream-light-sound`
+**Options:**
+- --words → number of words (default: 4)
+- --separator → string to join words (default: "-")
+- --no-capitalize → disables capitalization of words
+## General help
+You can always see all available commands and options with:
+```bash
+python main.py --help
+```
 
 ## Project structure
 ```graphql
@@ -54,16 +66,20 @@ Example output: `river-dream-light-sound`
 │
 ├── prepare_data.py     # downloads NLTK words corpus
 └── requirements.txt    # dependencies
+
 ```
 ## Notes
-Longer passwords are always more secure.
+- Longer passwords are always more secure.
 
-The memorable mode can create long but still easy-to-remember passphrases.
+- The memorable mode can create long but still easy-to-remember passphrases.
 
-You can customize it by swapping in your own word list instead of NLTK.
+- You can customize it by swapping in your own word list instead of NLTK.
 ## What I learned
-Even though this project could have been written in a functional style, I chose to build it with object-oriented programming.
-This helped me strengthen my OOP skills in Python and practice designing classes for different use cases.
+Even though this project could have been written in a functional style, I chose to build it with object-oriented programming. this help me with:
+
+- Practice designing classes for different use cases
+
+- Build a foundation for experimenting with dashboards, which I explored in the next
 
 It also gave me the background to experiment with dashboards — which I explored in my next project:
 [02-streamlit-dashboard](https://github.com/Hna2005/from-zero/tree/main/02-streamlit-dashboard)
