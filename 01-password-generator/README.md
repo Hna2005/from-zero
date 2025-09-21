@@ -7,8 +7,8 @@ Built with object-oriented programming to practice class design in Python
 Inspired by a sample project on GitHub. 
 
 ## Requirements
-Python 3.9+
-Dependencies listed in `requirements.txt`
+- Python 3.9+
+- Dependencies listed in `requirements.txt`
 
 ## Installation
 Clone the repository:
@@ -19,6 +19,10 @@ cd from-zero
 Install the dependencies:
 ```bash
 pip install -r requirements.txt
+```
+Download the NLTK words corpus:
+```bash
+python prepare_data.py
 ```
 ## Usage
 Go inside the `src/` folder and run the main script.
@@ -61,11 +65,13 @@ python main.py --help
 01-password-generator/
 │
 ├── src/
-│   ├── generators.py   # password generator classes
-│   └── main.py         # CLI entry point
+│   ├── __init__.py        # package init
+│   ├── generators.py      # password generator classes
+│   └── main.py            # CLI entry point
 │
-├── prepare_data.py     # downloads NLTK words corpus
-└── requirements.txt    # dependencies
+├── prepare_data.py        # downloads NLTK words corpus
+└── requirements.txt       # dependencies
+
 
 ```
 ## Notes

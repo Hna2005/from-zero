@@ -7,7 +7,7 @@ import nltk
 
 
 class PasswordGenerator(ABC):
-    """Base class for geb=nerate passwords."""
+    """Base class for generate passwords."""
     @abstractmethod
     def generate(self) -> str:
         """
@@ -72,7 +72,10 @@ class MemorablePassword(PasswordGenerator):
         """
         Generate a password from a list of vocabulary words.
         """
-        password_word = [secrets.choice(self.vocabulary) for _ in range(self.word_count)]
+        if not self.vocabulary:
+            raise ValueError("Vocabulary list is empty. Please provide a valid word list.")
+
+        password_words = [secrets.choice(self.vocabulary) for _ in range(self.word_count)]
         if self.capitalization:
-            password_word = [word.capitalize() for word in password_word]
-        return self.separator.join(password_word)
+            password_words = [word.capitalize() for word in password_words]
+        return self.separator.join(password_words)

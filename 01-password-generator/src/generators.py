@@ -1,13 +1,13 @@
 import secrets
 import string
 from abc import ABC, abstractmethod
-from typing import Optional, list
+from typing import Optional, List
 
 import nltk
 
 
 class PasswordGenerator(ABC):
-    """Base class for geb=nerate passwords."""
+    """Base class for generate passwords."""
     @abstractmethod
     def generate(self) -> str:
         """
@@ -56,7 +56,7 @@ class MemorablePassword(PasswordGenerator):
     def __init__(
         self,
         word_count: int = 8,
-        vocabulary: Optional[list[str]] = None,
+        vocabulary: Optional[List[str]] = None,
         separator: str = '-',
         capitalization: bool = True
     ):
@@ -64,7 +64,7 @@ class MemorablePassword(PasswordGenerator):
             vocabulary = nltk.corpus.words.words()   # edit this to any vocabulary list you want
         
         self.word_count: int = word_count
-        self.vocabulary: list[str] = [w for w in vocabulary if w.isalpha() and len(w) > 3]
+        self.vocabulary: List[str] = [w for w in vocabulary if w.isalpha() and len(w) > 3]
         self.separator: str = separator
         self.capitalization: bool = capitalization
     
@@ -72,7 +72,10 @@ class MemorablePassword(PasswordGenerator):
         """
         Generate a password from a list of vocabulary words.
         """
-        password_word = [secrets.choice(self.vocabulary) for _ in range(self.word_count)]
+        if not self.vocabulary:
+            raise ValueError("Vocabulary list is empty. Please provide a valid word list.")
+
+        password_words = [secrets.choice(self.vocabulary) for _ in range(self.word_count)]
         if self.capitalization:
-            password_word = [word.capitalize() for word in password_word]
-        return self.separator.join(password_word)
+            password_words = [word.capitalize() for word in password_words]
+        return self.separator.join(password_words)
