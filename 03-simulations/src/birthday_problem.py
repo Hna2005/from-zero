@@ -14,7 +14,8 @@ def find_similar(list_of_persons: list[int]) -> bool:
     return len(list_of_persons) != len(set(list_of_persons))
 
 
-def probability(n: int) -> float:
+def probability(group_size: int, num_trials: int) -> float:
+
     """
     Estimates the probability that at least two people in a group of 57
     share the same birthday (the Birthday Paradox).
@@ -27,12 +28,12 @@ def probability(n: int) -> float:
     """
     success_count: int = 0
 
-    for _ in range(n):
-        persons: list[int] = [random.randint(1, 365) for _ in range(57)]
+    for _ in range(num_trials):
+        persons: list[int] = [random.randint(1, 365) for _ in range(group_size)]
         if find_similar(persons):
             success_count += 1
 
-    return success_count / n
+    return success_count / num_trials
 
 if __name__ == "__main__":
     NUM_TRIALS = 10_000

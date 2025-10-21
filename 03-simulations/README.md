@@ -1,54 +1,73 @@
 # 03-Simulation
 **Classic Probability Simulations:**
 
-This repository contains Python simulations for classic probability problems to verify theoretical outcomes through computation.
+Classic Probability Simulations with Streamlit Dashboard
 
+This repository contains Python simulations for classic probability problems to verify theoretical outcomes through computation.
+It also includes an interactive Streamlit dashboard for visual simulations.
+
+Included Simulations:
 - **Monty Hall Problem**
 - **Birthday Problem**
 
 ## Requirements
 - Python 3.8+
-
+Streamlit `(pip install streamlit)`
 ## Project Structure
 ```graphql
 03-simulation/
 │
 ├── src/
+│   ├── main-dashboard.py   # Streamlit dashboard for interactive simulations
 │   ├── monty_hall.py       # Simulates the Monty Hall problem
 │   └── birthday_problem.py # Simulates the Birthday Paradox
 │
 └── README.md               # Project documentation
+
 ```
 ## Installation
-Make sure you have Python 3.8+ installed. Clone the repository:
+1. Make sure you have Python 3.8+ installed. 
+2. Clone the repository:
 ```bash
 git clone https://github.com/Hna2005/from-zero.git
 cd from-zero
 ```
 ## Usage
-**1. Monty Hall Problem**
+**1. Run Streamlit Dashboard**
 
-This script simulates the Monty Hall problem to show that switching doors increases the probability of winning from `~33%` to `~66%`.
-Open your terminal and run the following command:
+Run the interactive dashboard:
 ```bash
-python monty_hall.py
+streamlit run src/main-dashboard.py
+
+```
+Then open the provided URL in your browser (usually `http://localhost:8501`).
+
+**Birthday Problem:**
+Adjust the number of trials and group size to see the estimated probability of shared birthdays.
+
+**Monty Hall Problem:**
+Choose the number of simulations and whether to switch doors, then view the probability of winning.
+
+2. Run Individual Scripts (CLI)
+Monty Hall Problem:
+```bash
+python src/monty_hall.py
 ```
 Expected Output:
 ```bash
 Running 100,000 simulations...
-Wins without switching: 33245 (33.25%)
-Wins with switching:    66755 (66.76%)
+Wins without switching: 33,245 (33.25%)
+Wins with switching:    66,755 (66.76%)
+
 ```
-**2. birthday problem**
-This script calculates the surprisingly high probability that at least two people in a group share a birthday.
-Open your terminal and run the following command:
-```bash
-python birthday_problem.py
+Birthday Problem:
+```bash 
+python src/birthday_problem.py
 ```
 Expected Output:
 ```bash
 Simulating for a group of 23 people...
-The estimated probability of a shared birthday is: 50.45%
+Estimated probability of a shared birthday: 50.45%
 ```
 
 ## Postmortem: Bug in Monty Hall Simulation

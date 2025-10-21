@@ -16,9 +16,11 @@ Clone the repository:
 git clone https://github.com/Hna2005/from-zero.git
 cd from-zero
 ```
-Install the dependencies:
+### Requirements
+- Python 3.10 or higher  
+- Dependencies (install using pip):
 ```bash
-pip install -r requirements.txt
+  pip install -r requirements.txt
 ```
 Download the NLTK words corpus:
 ```bash

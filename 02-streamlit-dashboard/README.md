@@ -17,7 +17,7 @@ Clone the repository:
 git clone https://github.com/Hna2005/from-zero.git
 cd from-zero
 ```
-Install the dependencies:
+Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
